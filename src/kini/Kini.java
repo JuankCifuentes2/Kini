@@ -6,6 +6,7 @@
 package kini;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -18,11 +19,34 @@ public class Kini {
      */
     public static void main(String[] args) {
         
+         Scanner entrada = new Scanner(System.in);
+       
+        
+        int[] arreglo = new int [6];
+        
         int tam= 6;
         int k = 0;
         int l = 0;
         int n = 0;
+        int m = 0;
+        int aux = 0;
         int sorteo[] = new int [tam];
+        
+        
+         System.out.println("Hola ahora ingresa tus numeros ");
+         
+        while (m<6){
+        System.out.println("Ingresa tu numero" + (m));
+        aux = entrada.nextInt();
+        if(aux>45||aux<0){   
+        System.out.println("ERROR Recuerda que el numero debe estar entre 0 y 45");
+        }
+        if(aux<46&&aux>-1){
+        System.out.println("Hola");
+        arreglo[m]= aux;
+        m = m +1;
+        }
+        }
         
         
        
