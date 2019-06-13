@@ -5,6 +5,7 @@
  */
 package kini;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -26,6 +27,7 @@ public class Kini {
         
         int tam= 6;
         int k = 0;
+        int cont = 0;
         int l = 0;
         int n = 0;
         int m = 0;
@@ -74,23 +76,13 @@ public class Kini {
         }    
         
         //Se Ordena arreglo ingresado por Usuario
-        for (int i=0; i<arreglo.length;i++){
-            
-            for (int j=i+1;j<arreglo.length;j++){
-                if (arreglo[i]>arreglo[j]){
-                    aux = arreglo[i];
-                    arreglo[i]=arreglo[j];
-                    arreglo[j]=aux;
-                } 
-            }
-        }
-        
+        Arrays.sort(arreglo);
 
 // Imprime el arreglo ordenado 
         System.out.println("Los numeros que elegiste fueron");
         for (int i =0;i<tam;i++){
      
-        System.out.println(arreglo[i]);         
+        System.out.print(arreglo[i]+" ");         
         }
                 
                 
@@ -132,32 +124,75 @@ public class Kini {
 
      
    //Se Ordenan numeros de sorteo
-        for (int i=0; i<sorteo.length;i++){
-            
-            for (int j=i+1;j<sorteo.length;j++){
-                if (sorteo[i]>sorteo[j]){
-                    aux = sorteo[i];
-                    sorteo[i]=sorteo[j];
-                    sorteo[j]=aux;
-                } 
-            }
-        }
-        
+     Arrays.sort(sorteo);
 
 // Imprime el arreglo ordenado 
+        System.out.println(" ");
         System.out.println("Los numeros sorteados son");
         for (int i =0;i<tam;i++){
      
-        System.out.println(sorteo[i]);         
+        System.out.print(sorteo[i]+" ");         
         }   
+     System.out.println(" ");
      
      
      
-       
+     
+        for (int i=0;i<6;i++){
+            
+            for (int j=0;j<6;j++){
+                
+                if (arreglo[i]==sorteo[j]){
+                  cont = cont +1;  
+                  
+                }
+        }   
 }
+    
+     int iguales[] = new int [cont];
+     
+      int d= 0;
+     
+     for (int i=0;i<6;i++){
+            
+            for (int j=0;j<6;j++){
+                
+                if (arreglo[i]==sorteo[j]){
+                    iguales[d] = arreglo[i];
+                    d = d+1;
+                }
+        }   
+}
+     
+     if (cont<4){
+        System.out.println("Tuviste  " + cont + " aciertos, intentalo de nuevo");
+        System.out.println("Los numeros iguales son");
+        for (int i =0;i<cont;i++){
+        System.out.print(iguales[i]+" ");         
+        }   
+        System.out.println(" ");
+        }
+     
+      if (cont==4){
+        System.out.println("Tuviste  " + cont + " aciertos, salvaste la boleta");
+        System.out.println("Los numeros iguales son");
+        for (int i =0;i<cont;i++){
+        System.out.print(iguales[i]+" ");         
+        }   
+        System.out.println(" ");
+     }
+     
+      if (cont==5){
+        System.out.println("Tuviste  " + cont + " aciertos, ganaste");
+        System.out.println("Los numeros iguales son");
+        for (int i =0;i<cont;i++){
+        System.out.print(iguales[i]+" ");         
+        }   
+        System.out.println(" ");
+     }
         
     }
-
+}
      
         
     
