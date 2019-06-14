@@ -8,6 +8,7 @@ package kini;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,15 +37,13 @@ public class Kini {
         
         
         //Usuario Ingresa los numeros, programa valida que sean entre 0 y 45
-        
-         System.out.println("Hola ahora ingresa tus numeros ");
+        JOptionPane.showMessageDialog(null, "Bienvenido, estas listo para jugar? . Recuerda elegir 6 numeros del 0 al 45");
         //Se pide Ingresar numero
         while (m<6){
-        System.out.println("Ingresa tu numero" + (m+1));
-        aux = entrada.nextInt();
+        aux=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingresa tu numero " + (m+1) ));
         //Se evalua que este entre 0 y 45
         if(aux>45||aux<0){   
-        System.out.println("ERROR Recuerda que el numero debe estar entre 0 y 45");
+        JOptionPane.showMessageDialog(null, "ERROR Recuerda que el numero debe estar entre 0 y 45");
         }
         if(aux<46&&aux>-1){
         if (m>0){
@@ -65,7 +64,7 @@ public class Kini {
           m = m+ 1;
           }
           if (n!=k){
-          System.out.println("El numero " + aux + " ya lo elegiste ");      
+          JOptionPane.showMessageDialog(null, "El numero " + aux + " ya lo elegiste ");     
           }
         }
           if (m==0){
@@ -79,16 +78,10 @@ public class Kini {
         Arrays.sort(arreglo);
 
 // Imprime el arreglo ordenado 
-        System.out.println("Los numeros que elegiste fueron");
-        for (int i =0;i<tam;i++){
-     
-        System.out.print(arreglo[i]+" ");         
-        }
-                
-                
-       
-       
 
+        n=0;
+        JOptionPane.showMessageDialog(null, "Los numeros que elegiste fueron" + " " + arreglo[n]+" - "+ arreglo[n+1]+" - "+ arreglo[n+2]+" - "+ arreglo[n+3]+" - "+ arreglo[n+4]+" - "+ arreglo[n+5]);        
+       
         //Programa genera los aleatorios validando que no se repitan
        
        if (l==0){
@@ -127,16 +120,8 @@ public class Kini {
      Arrays.sort(sorteo);
 
 // Imprime el arreglo ordenado 
-        System.out.println(" ");
-        System.out.println("Los numeros sorteados son");
-        for (int i =0;i<tam;i++){
-     
-        System.out.print(sorteo[i]+" ");         
-        }   
-     System.out.println(" ");
-     
-     
-     
+        n=0;
+        JOptionPane.showMessageDialog(null, "Los numeros sorteados fueron" + " " + sorteo[n]+" - "+ sorteo[n+1]+" - "+ sorteo[n+2]+" - "+ sorteo[n+3]+" - "+ sorteo[n+4]+" - "+ sorteo[n+5]);
      
         for (int i=0;i<6;i++){
             
@@ -163,33 +148,36 @@ public class Kini {
                 }
         }   
 }
+   if (cont==0){
+        JOptionPane.showMessageDialog(null, "No le pegaste a ningun numero, intentalo de nuevo");
+       }
+    
+     if (cont==1){
+         n=0;
+        JOptionPane.showMessageDialog(null, "Acertaste un numero" + " el " + sorteo[n]);
+       }
      
-     if (cont<4){
-        System.out.println("Tuviste  " + cont + " aciertos, intentalo de nuevo");
-        System.out.println("Los numeros iguales son");
-        for (int i =0;i<cont;i++){
-        System.out.print(iguales[i]+" ");         
-        }   
-        System.out.println(" ");
-        }
+     if (cont==2){
+         n=0;
+        JOptionPane.showMessageDialog(null, "Acertaste 2 numeros " + sorteo[n] + " - "+ sorteo[n+1]);
+       } 
      
+      if (cont==3){
+         n=0;
+        JOptionPane.showMessageDialog(null, "Acertaste 3 numeros " + sorteo[n] + " - "+ sorteo[n+1]+ " - "+ sorteo[n+2]);
+       } 
       if (cont==4){
-        System.out.println("Tuviste  " + cont + " aciertos, salvaste la boleta");
-        System.out.println("Los numeros iguales son");
-        for (int i =0;i<cont;i++){
-        System.out.print(iguales[i]+" ");         
-        }   
-        System.out.println(" ");
-     }
-     
+         n=0;
+        JOptionPane.showMessageDialog(null, "Acertaste 4 numeros salvaste la boleta " + sorteo[n] + " - "+ sorteo[n+1]+ " - "+ sorteo[n+2]+ " - "+ sorteo[n+3]);
+       } 
       if (cont==5){
-        System.out.println("Tuviste  " + cont + " aciertos, ganaste");
-        System.out.println("Los numeros iguales son");
-        for (int i =0;i<cont;i++){
-        System.out.print(iguales[i]+" ");         
-        }   
-        System.out.println(" ");
-     }
+         n=0;
+        JOptionPane.showMessageDialog(null, "Acertaste 5 numeros te ganas 3 millones con los numeros " + sorteo[n] + " - "+ sorteo[n+1]+ " - "+ sorteo[n+2]+ " - "+ sorteo[n+3]+ " - "+ sorteo[n+4]);
+       } 
+      if (cont==6){
+         n=0;
+        JOptionPane.showMessageDialog(null, "Ganaste el premio Mayor " + sorteo[n] + " - "+ sorteo[n+1]+ " - "+ sorteo[n+2]+ " - "+ sorteo[n+3]+ " - "+ sorteo[n+4]+ " - "+ sorteo[n+5]);
+       } 
         
     }
 }
